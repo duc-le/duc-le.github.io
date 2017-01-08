@@ -1,5 +1,6 @@
 # About
-This is my personal blog hosted from github using [Jekyll](https://jekyllrb.com/) with [Daktilo](https://github.com/kronik3r/daktilo) theme.
+My name is Duc Le, I'm a freelance computer security researcher from Vietnam. My research focuses on Windows Kernels, malware analysis and system programming.
 
-# License
-The contents of this repository is licensed under [The MIT License.](https://opensource.org/licenses/MIT)
+In my freetime I play CTF, write code and solve crackme challenges.
+
+This is my personal blog hosted from github using [Jekyll](https://jekyllrb.com/) with [Daktilo](https://github.com/kronik3r/daktilo) theme.
