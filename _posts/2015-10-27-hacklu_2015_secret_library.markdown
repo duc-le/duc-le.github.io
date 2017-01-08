@@ -82,6 +82,7 @@ But how can we win the guessing game? Well I may say it's *impossible*!
 
 ## rt_sigprocmask ##
 The trick here is the function at **0x400AF6** that converts an 8-bit hex character into the number it represents:
+
 ```C
 int hex_char_to_number(char ch) {
     if (ch < '0')
