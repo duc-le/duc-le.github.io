@@ -15,13 +15,15 @@ categories: [ctf-writeups]
 >
 > connect to school.fluxfingers.net:1532
 
+**You can download the challenge's binary file [here]({{ site.url }}/downloads/ctf/zoo_e53acc6856a0e20f5d0a479081f18911.tar.gz).**
+
 Due to a silly coding bug I didn't succeed to get the flag from the server on time, however I still make a writeup for this cool challenge.
 
 ## The SIGILL handler ##
 The program starts by installing the handler for SIGILL then requiring user name and license code. It reads those information from *stdout* (not from stdin as usual) and do the checking.
 The SIGILL handler code is quite interesting:
 
-```asm
+```nasm
 .text:00400083           mov     esp, 0FFFFE000h
 .text:00400088           mov     eax, 13               ; rt_sigaction
 .text:0040008D           mov     edi, 4                ; SIGILL
@@ -56,7 +58,8 @@ void (*_sa_sigaction)(int signum, struct siginfo *info, void *context);
 ```
 
 Let's dig deeper:
-```asm
+
+```nasm
 .text:0040028C           add     rdx, 0A8h             ; rdx -> context, (rdx + 0xA8) -> the value of 
                                                                ; rip that raises the signal
 .text:00400293           mov     rax, [rdx]            ; rax = value of rip that raises the signal
@@ -76,7 +79,8 @@ So for each instruction that raises **SIGILL**, this handler switches between x8
 
 ## The fork call ##
 After reading user name and license code, the program invokes the **fork** call:
-```gas
+
+```nasm
 .text:00400260           mov     eax, 57
 .text:00400265           syscall                       ; fork
 .text:00400267           test    eax, eax
@@ -228,7 +232,7 @@ We should solve the following equation:
 That's where **z3** comes to play!
 
 ## The license generation code ##
-We use Python and z3 to create our license generation. Here's the [source file]({{site.url}}/downloads/ctf/hacklu_2015_zoo_gen.py)
+We use Python and z3 to create our license generation. Here's the <a href="//github.com/duc-le/duc-le.github.io/blob/master/downloads/ctf/hacklu_2015_zoo_gen.py" target="_blank">source file</a>
 
 Please note that for some names we cannot find the appropriated license code.
 
