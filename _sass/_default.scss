@@ -16,10 +16,14 @@ a {
 }
 
 p {
-    font-size: 20px;
-    line-height: 32px;
+    #font-size: 20px;
+    #line-height: 32px;
+	#line-height: 1.5;
 }
 
+li {
+	line-height: 1.5;
+}
 img {
     margin: 40px auto;
     display: block;
@@ -30,7 +34,7 @@ blockquote {
     letter-spacing: 3px;
     margin:0px;
     margin-top: 40px;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     padding: 0px;
     //text-align: center;
     position: relative;
@@ -52,9 +56,9 @@ blockquote {
     p {
         //display: inline;
 		margin-left: 20px;
-        font-size: 20px;
+        #font-size: 20px;
         color: $cloudy;
-        font-weight: 400;
+        #font-weight: 400;
         //&:before { content: "“ "; }
         //&:after { content: " ”"; }
     }

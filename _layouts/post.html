@@ -2,7 +2,7 @@
 layout: default
 ---
 {% include post/title.html %}
-
+{{ post.exceprt | remove: '<p>' | remove: '</p>' }}
 <div class="content">
     {{ content }}
 </div>

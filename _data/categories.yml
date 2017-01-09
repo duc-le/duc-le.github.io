@@ -1,5 +1,12 @@
+- slug: programming
+  name: Programming
+
+- slug: rce
+  name: Reversing
+
 - slug: ctf-writeups
   name: CTF Writeups
 
 - slug: misc
   name: Miscellaneous
+

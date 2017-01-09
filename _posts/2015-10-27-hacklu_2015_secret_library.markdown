@@ -18,8 +18,10 @@ categories: [ctf-writeups]
 >
 > connect to school.fluxfingers.net:1527
 
+**You can download the challenge's binary file [here]({{ site.url }}/downloads/ctf/secret_library_75904fb763267c629e729fa4a5c4d967).**
 
 ## The main logic ##
+
 The target is a 64-bit ELF file. Since its logic is quite simple I won't explain in details the assembly code.
 Here's the pseudo code of the main communication:
 
@@ -114,24 +116,23 @@ So here's how we should enter to get the flag:
 
 Here's our example input while connecting to **school.fluxfingers.net:1527**:
 
-* **420B65F7**
-* **12278F03**
+  * **420B65F7**
+  * **12278F03**
 * **12278F0@**
 * **952A7224**
 
 And we have the following responses from server:
 
-```
-hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
-alright, show me your library card.
-alright!
-warning: invalid hexchar '@'
-you do know the magic words, right?
-sure! the head librarian is allowed to know about all the books!
-------------
-16F7F4D391F030CF
-------------
-```
+
+    hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
+    alright, show me your library card.
+    alright!
+    warning: invalid hexchar '@'
+    you do know the magic words, right?
+    sure! the head librarian is allowed to know about all the books!
+    ------------
+    16F7F4D391F030CF
+    ------------
 
 Then we know the flag file name is "16F7F4D391F030CF". We connect to **school.fluxfingers.net:1527** again and enter the following sequences:
 
