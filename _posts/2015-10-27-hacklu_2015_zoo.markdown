@@ -21,7 +21,7 @@ Due to a silly coding bug I didn't succeed to get the flag from the server on ti
 The program starts by installing the handler for SIGILL then requiring user name and license code. It reads those information from *stdout* (not from stdin as usual) and do the checking.
 The SIGILL handler code is quite interesting:
 
-```gas
+```asm
 .text:00400083           mov     esp, 0FFFFE000h
 .text:00400088           mov     eax, 13               ; rt_sigaction
 .text:0040008D           mov     edi, 4                ; SIGILL
@@ -43,7 +43,7 @@ struct sigaction {
 
 Let's have a look at this data structure:
 
-```gas
+```asm
 .text:004001A7 _4001A7   dq offset _40028C             ; handler function
 .text:004001AF           dq 44000004h                  ; flags
 .text:004001B7           dq offset _400271             ; restorer
@@ -56,7 +56,7 @@ void (*_sa_sigaction)(int signum, struct siginfo *info, void *context);
 ```
 
 Let's dig deeper:
-```gas
+```asm
 .text:0040028C           add     rdx, 0A8h             ; rdx -> context, (rdx + 0xA8) -> the value of 
                                                                ; rip that raises the signal
 .text:00400293           mov     rax, [rdx]            ; rax = value of rip that raises the signal
