@@ -1,8 +1,8 @@
 ---
 layout: 	post
-title: 		"Hacklu CTF 2015 Writeup - Secret Library"
+title: 		"Hacklu CTF 2015 Write-up: Secret Library"
 subtitle: 	"Reverse Engineering"
-date:		2015-10-27	
+date:		2015-10-27 23:04:00 +0700	
 categories: [ctf-writeups]
 ---
 
@@ -124,15 +124,15 @@ Here's our example input while connecting to **school.fluxfingers.net:1527**:
 And we have the following responses from server:
 
 
-    hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
-    alright, show me your library card.
-    alright!
-    warning: invalid hexchar '@'
-    you do know the magic words, right?
-    sure! the head librarian is allowed to know about all the books!
-    ------------
-    16F7F4D391F030CF
-    ------------
+<pre>hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
+alright, show me your library card.
+alright!
+warning: invalid hexchar '@'
+you do know the magic words, right?
+sure! the head librarian is allowed to know about all the books!
+------------
+16F7F4D391F030CF
+------------</pre>
 
 Then we know the flag file name is "16F7F4D391F030CF". We connect to **school.fluxfingers.net:1527** again and enter the following sequences:
 
@@ -142,13 +142,12 @@ Then we know the flag file name is "16F7F4D391F030CF". We connect to **school.fl
 
 Here's how the server responses:
 
-```
-hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
+<pre>hi! this is the secret library. if you want me to speak to you, you need to know the magic words.
 you want me to show you a book? certainly! just tell me the name of the book.
 oh, yes, we have that! here you go...
 flag{our_secret_is_that_we_really_just_have_this_one_book}
 
-====================
-```
+====================</pre>
+
 
 So the flag is **flag{our_secret_is_that_we_really_just_have_this_one_book}**
