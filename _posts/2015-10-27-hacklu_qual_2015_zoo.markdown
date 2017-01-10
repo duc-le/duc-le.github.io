@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Hacklu CTF 2015 Write-up: Zoo"
+title:      "Hacklu CTF Qual 2015 Write-up: Zoo"
 subtitle:   "Reverse Engineering"
 date:       2015-10-27 18:34:13 +0700   
 categories: [ctf-writeups]
@@ -24,6 +24,8 @@ The program starts by installing the handler for SIGILL then requiring user name
 The SIGILL handler code is quite interesting:
 
 ```nasm
+push ebp
+SECTION .data
 .text:00400083           mov     esp, 0FFFFE000h
 .text:00400088           mov     eax, 13               ; rt_sigaction
 .text:0040008D           mov     edi, 4                ; SIGILL
@@ -32,7 +34,7 @@ The SIGILL handler code is quite interesting:
 .text:004000A1           mov     r10d, 8
 ```
 
-The address **0x4001A7** is the location of the ```struct sigaction``` provided by the program.
+The address **0x4001A7** is the location of the `struct sigaction` provided by the program.
 
 ```c
 struct sigaction {
@@ -232,7 +234,7 @@ We should solve the following equation:
 That's where **z3** comes to play!
 
 ## The license generation code ##
-We use Python and z3 to create our license generation. Here's the <a href="//github.com/duc-le/duc-le.github.io/blob/master/downloads/ctf/hacklu_2015_zoo_gen.py" target="_blank">source file</a>
+We use Python and z3 to create our license generation. Here's the <a href="{{ site.url }}/downloads/ctf/hacklu_qual_2015_zoo_gen.py" target="_blank">source file</a>
 
 Please note that for some names we cannot find the appropriated license code.
 

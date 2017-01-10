@@ -1,6 +1,6 @@
 ---
 layout: 	post
-title: 		"Hacklu CTF 2015 Write-up: Secret Library"
+title: 		"Hacklu CTF Qual 2015 Write-up: Secret Library"
 subtitle: 	"Reverse Engineering"
 date:		2015-10-27 23:04:00 +0700	
 categories: [ctf-writeups]
