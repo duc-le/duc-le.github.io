@@ -40,6 +40,20 @@ blockquote {
     position: relative;
 	border-left: 0.25em solid #ddd;
 
+	table th {
+		padding: 6px 10px;
+		border: 1px solid #ddd;
+	}
+
+	table td {
+		padding: 6px 10px;
+		border: 1px solid #ddd;
+	}
+
+	table {
+		margin-left: 20px;
+	}
+
     footer {
         position: absolute;
         bottom: -35px;
