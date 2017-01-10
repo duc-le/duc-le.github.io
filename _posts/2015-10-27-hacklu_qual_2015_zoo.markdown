@@ -24,8 +24,6 @@ The program starts by installing the handler for SIGILL then requiring user name
 The SIGILL handler code is quite interesting:
 
 ```nasm
-push ebp
-SECTION .data
 .text:00400083           mov     esp, 0FFFFE000h
 .text:00400088           mov     eax, 13               ; rt_sigaction
 .text:0040008D           mov     edi, 4                ; SIGILL
@@ -47,7 +45,7 @@ struct sigaction {
 
 Let's have a look at this data structure:
 
-```asm
+```nasm
 .text:004001A7 _4001A7   dq offset _40028C             ; handler function
 .text:004001AF           dq 44000004h                  ; flags
 .text:004001B7           dq offset _400271             ; restorer

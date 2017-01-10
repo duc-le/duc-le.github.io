@@ -25,7 +25,7 @@ categories: [ctf-writeups]
 The target is a 64-bit ELF file. Since its logic is quite simple I won't explain in details the assembly code.
 Here's the pseudo code of the main communication:
 
-```C
+```c
 special_input = 0;              // stored at 0x603394
 char input_buffer[9];
 char file_name[9];
@@ -85,7 +85,7 @@ But how can we win the guessing game? Well I may say it's *impossible*!
 ## rt_sigprocmask ##
 The trick here is the function at **0x400AF6** that converts an 8-bit hex character into the number it represents:
 
-```C
+```c
 int hex_char_to_number(char ch) {
     if (ch < '0')
         return -1;
@@ -101,6 +101,7 @@ int hex_char_to_number(char ch) {
         return -1;
 }
 ```
+
 If we enter any character in range from 0x3A (':') to 0x40 ('@') the program will call **rt_sigprocmask** to return the current blocked signals to offset **0x603397**. Since there is usually no blocked signal, the 8 bytes starting at **0x603397** will be zero-filled.
 
 The interesting part is the **special_input** variable which is stored at **0x603394**. Since this ELF is little-endian, the **rt_sigprocmask** call will overwrite the most significant byte of **special_input** and set it to zero.
@@ -116,8 +117,8 @@ So here's how we should enter to get the flag:
 
 Here's our example input while connecting to **school.fluxfingers.net:1527**:
 
-  * **420B65F7**
-  * **12278F03**
+* **420B65F7**
+* **12278F03**
 * **12278F0@**
 * **952A7224**
 
