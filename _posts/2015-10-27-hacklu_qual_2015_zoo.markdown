@@ -234,7 +234,7 @@ We should solve the following equation:
 That's where **z3** comes to play!
 
 ## The license generation code ##
-We use Python and z3 to create our license generation. Here's the <a href="{{ site.url }}/downloads/ctf/hacklu_qual_2015_zoo_gen.py" target="_blank">source file</a>
+We use Python and z3 to create our license generation. Here's the <a href="https://github.com/duc-le/duc-le.github.io/blob/master/downloads/ctf/hacklu_qual_2015_zoo_gen.py" target="_blank">source file</a>
 
 Please note that for some names we cannot find the appropriated license code.
 
