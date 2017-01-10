@@ -231,10 +231,10 @@ We should solve the following equation:
 * A + 2B + 3C = H1
 * 2A + B = H2
 
-That's where **z3** comes to play!
+That's where [Z3](https://github.com/Z3Prover/z3){:target="_blank"} comes to play!
 
 ## The license generation code ##
-We use Python and z3 to create our license generation. Here's the <a href="https://github.com/duc-le/duc-le.github.io/blob/master/downloads/ctf/hacklu_qual_2015_zoo_gen.py" target="_blank">source file</a>
+We use Python and Z3 to create our license generation. Here's the [source file](https://github.com/duc-le/duc-le.github.io/blob/master/downloads/ctf/hacklu_qual_2015_zoo_gen.py){:target="_blank"}.
 
 Please note that for some names we cannot find the appropriated license code.
 
